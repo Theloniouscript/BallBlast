@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class CartInputManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Cart cart;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        cart.SetMovementTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 }
