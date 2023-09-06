@@ -12,6 +12,8 @@ public class Cart : MonoBehaviour
     [SerializeField] private Transform[] wheels;
     [SerializeField] private float wheelRadius;
 
+    [SerializeField] private LevelBoundary levelBoundary;
+
 
     private Vector3 movementTarget;
     private float deltaMovement;
@@ -51,8 +53,8 @@ public class Cart : MonoBehaviour
     }
     private Vector3 ClampMovementTarget(Vector3 target)
     {
-        float leftBorder = -8.4f + vehicleWidth * 0.5f;
-        float rightBorder = 8.4f - vehicleWidth * 0.5f;
+        float leftBorder = LevelBoundary.Instance.LeftBorder + vehicleWidth * 0.5f;
+        float rightBorder = LevelBoundary.Instance.RightBorder - vehicleWidth * 0.5f;
 
         Vector3 movTarget = target;
 
