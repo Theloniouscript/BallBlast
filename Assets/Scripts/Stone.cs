@@ -52,11 +52,8 @@ public class Stone : Destructable
             stone.movement.AddVerticalVelocity(spawnUpForce);
             stone.movement.SetHorizontalDirection((i % 2 * 2) - 1);
         }
-
-
     }
-
-    private void SetSize(Size size)
+    public void SetSize(Size size)
     {
         if (size < 0) return;
         transform.localScale = GetVectorFromSize(size);
