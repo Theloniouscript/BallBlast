@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StoneSpawner : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class StoneSpawner : MonoBehaviour
     [SerializeField] private int amount;
     [SerializeField] private float maxHitPointsRate;
     [SerializeField] [Range(0.0f, 1.0f)] private float minHitPointsPercentage;
+
+
+    [Space(10)]
+    public UnityEvent Completed;
 
     private int stoneMaxHitPoints;
     private int stoneMinHitPoints;
@@ -40,6 +45,12 @@ public class StoneSpawner : MonoBehaviour
         {
             Spawn();
             timer = 0;
+        }
+
+        if(amountSpawned == amount)
+        {
+            enabled = false;
+            Completed.Invoke();
         }
     }
 

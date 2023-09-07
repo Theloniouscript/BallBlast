@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Cart : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class Cart : MonoBehaviour
     [SerializeField] private float wheelRadius;
 
     [SerializeField] private LevelBoundary levelBoundary;
+
+    [HideInInspector] public UnityEvent CollisionStone;
 
 
     private Vector3 movementTarget;
@@ -66,6 +70,16 @@ public class Cart : MonoBehaviour
 
         return movTarget;
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Stone stone = collision.transform.root.GetComponent<Stone>();
+
+        if(stone != null)
+        {
+            CollisionStone.Invoke();
+        }
     }
 
 #if UNITY_EDITOR
