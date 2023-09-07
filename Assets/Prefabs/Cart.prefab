@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &515328552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515328553}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515328553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515328552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 1.029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6333293398072478210}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6333293396903720459
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +410,7 @@ GameObject:
   - component: {fileID: 6333293398072478208}
   - component: {fileID: 6333293398072478211}
   - component: {fileID: 893191639}
+  - component: {fileID: 6333293398422900696}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -399,6 +431,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6333293397018507538}
+  - {fileID: 515328553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -420,6 +453,7 @@ MonoBehaviour:
   - {fileID: 6333293396903720456}
   - {fileID: 6333293397644015365}
   wheelRadius: 0.292
+  levelBoundary: {fileID: 0}
 --- !u!114 &6333293398072478211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cart: {fileID: 6333293398072478208}
+  turret: {fileID: 6333293398422900696}
 --- !u!50 &893191639
 Rigidbody2D:
   serializedVersion: 4
@@ -454,6 +489,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6333293398422900696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333293398072478213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f248a987677736543be0aba9ec715847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7313593541420937479, guid: 5cab3c02948cbfe438541f5348aed763, type: 3}
+  shootPoint: {fileID: 515328553}
+  projectileInterval: 0.3
+  damage: 1
+  fireRate: 0.3
+  projectileAmount: 3
 --- !u!1 &6333293398457522128
 GameObject:
   m_ObjectHideFlags: 0
